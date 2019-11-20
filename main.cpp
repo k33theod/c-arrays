@@ -30,10 +30,10 @@ int main ()
     int temp = a[0];//bug bug bug bug bug
         
     randomize_array(b, size2, from, to);
+    a[0]=temp;//bug recover bug recover bug recover
     printf ("\nPinakas 2 me %d stoixeia\n\n", size2);
     print_array(b, size2);
-    a[0]=temp;//bug recover bug recover bug recover
-    
+        
     merge(a, size1, b, size2, c);
     
     printf ("\nPinakas c me %d stoixeia\n\n", size3);
