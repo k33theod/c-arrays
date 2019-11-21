@@ -26,10 +26,8 @@ int main ()
     randomize_array(a, size1, from, to);
     printf ("\nPinakas 1 me %d stoixeia\n\n", size1);
     print_array(a, size1);
-    //int temp = a[0];//bug bug bug bug bug
         
     randomize_array(b, size2, from, to);
-    //a[0]=temp;//bug recover bug recover bug recover
     printf ("\nPinakas 2 me %d stoixeia\n\n", size2);
     print_array(b, size2);
     
