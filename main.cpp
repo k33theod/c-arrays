@@ -2,7 +2,6 @@
 #include<time.h>
 #include<stdlib.h>
 
-
 int binary_search(int arr[], int start, int end, int item);
 void insert (int arr[], int n, int index, int value);
 void merge(int arr1[], int m, int arr2[], int n ,int target[]);
@@ -13,11 +12,11 @@ void randomize_array(int arr[], int size, int from, int to);
 int main ()
 {
     int const from =100;
-    int const to = 999;
+    int const to = 500;
     
     int const size1=15;
-    int const size2 =20;
-    int const size3 =35;
+    int const size2 =30;
+    int const size3 =size1+size2;
     
     int a[size1]={0};
     int b[size2]={0};
@@ -27,13 +26,14 @@ int main ()
     randomize_array(a, size1, from, to);
     printf ("\nPinakas 1 me %d stoixeia\n\n", size1);
     print_array(a, size1);
-    int temp = a[0];//bug bug bug bug bug
+    //int temp = a[0];//bug bug bug bug bug
         
     randomize_array(b, size2, from, to);
-    a[0]=temp;//bug recover bug recover bug recover
+    //a[0]=temp;//bug recover bug recover bug recover
     printf ("\nPinakas 2 me %d stoixeia\n\n", size2);
     print_array(b, size2);
-        
+    
+    
     merge(a, size1, b, size2, c);
     
     printf ("\nPinakas c me %d stoixeia\n\n", size3);
@@ -45,7 +45,6 @@ int main ()
    
     return 0;
 }
-
 
 int binary_search(int arr[], int start, int end, int item)
 {
@@ -67,7 +66,7 @@ void insert (int arr[], int n, int index, int value)
 {
     while (n>=index)
     {    
-        arr[n+1]=arr[n];
+        arr[n]=arr[n-1];
         n--;
     }
     arr[index] = value;
@@ -78,18 +77,11 @@ void merge(int arr1[], int m, int arr2[], int n ,int target[])
     int i=0, j=0, k=0;  
     while (i<m && j<n)
     {    
-        if (arr1[i] < arr2[j]) 
+        if (arr1[i] <= arr2[j]) 
         {            
             target[k] = arr1[i];
             i++;
             k++;
-        }
-        else if (arr1[i]==arr2[j]) 
-        {            
-            target[k] = arr1[i];
-            j++;
-            k++;
-            i++;
         }
         else
         {
@@ -98,14 +90,12 @@ void merge(int arr1[], int m, int arr2[], int n ,int target[])
             k++;
         }
     }
-    
     while (i<m)
     {
         target[k] = arr1[i];
         i++;
         k++;
     }
-    
     while (j<n)
     {
         target[k] = arr2[j];
@@ -142,25 +132,14 @@ void randomize_array(int arr[], int size, int from, int to)
     int i = 0;
     int item = 0;
     int position =0;
-    while (i <size)
+    while (i<size)
     {
         item = from+rand()%(to-from);
-        if (i ==0)
+        position = binary_search(arr, 0, i-1, item);
+        if (position!=-1)
         {
-            arr[i]=item;
+            insert (arr, i, position, item);
             i++;
-            continue;
-        } 
-        
-        else
-        {
-            position = binary_search(arr, 0, i-1, item);
-            if (position!=-1)
-            {
-                insert (arr, i, position, item);
-                i++;
-            }
         }
-        
     }
 }
