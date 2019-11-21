@@ -8,6 +8,7 @@
 
 
 Write a programm in c
+
 1 Will create using rand 2 sorted 1 dimensional arrays, with length m and n respectively and will print then on screen. The range of values will be 100-999. Should take care the values of arrays remain always sorted while inserted. Will not insert the values and sort them afterwards. should be no duplicates in arrays.
-2. After that the programm creates a third array that holds sorted the values of the 2 previously generated arrays. This third array should be big enough to pass all values of the 2 arrays. The programm prints the new array with values in reversed order.
-Should not concatenate the 2 arrays to create the third and sort its values later. Should take care to keep the new array sorted while its generated.
+
+2. After that the programm creates a third array that holds sorted the values of the 2 previously generated arrays. This third array should be big enough to pass all values of the 2 arrays. The programm prints the new array with values in reversed order. Should not concatenate the 2 arrays to create the third and sort its values later. Should take care to keep the new array sorted while its generated.
